@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+  <title>Sneaker company shop</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul id="navigation">
+        <h2>sneakers</h2>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="acces">
+      <a href="#" ><img id="cart" src="./images/icon-cart.svg" alt="cart" onmouseover="displayCart()" onmouseout="clearCart()"/></a>
+      <a href="#"><img id="avatar" src="./images/image-avatar.png" alt="photo profil" /></a>
+    </div>
+  </header>
+  <hr />
+  <main>
+    <article>
+      <section class="lightbox" onclick="showModale()" >
+        <div class="wide" id="wide_1">
+          <a href="#"><img src="./images/image-product-1.jpg" alt="large product image" /></a>
+        </div>
+        <div class="wide_img" id="wide_2">
+          <a href="#"><img src="./images/image-product-2.jpg" alt="large product image" /></a>
+        </div>
+        <div class="wide_img" id="wide_3">
+          <a href="#"><img src="./images/image-product-3.jpg" alt="large product image" /></a>
+        </div>
+        <div class="wide_img" id="wide_4">
+          <a href="#"><img src="./images/image-product-4.jpg" alt="large product image" /></a>
+        </div>
+      </section>
+
+      <section class="rowImage">
+        <div class="small_img" id="small_1">
+          <a href="#"><img src="./images/image-product-1-thumbnail.jpg" alt="small photo shoes" /></a>
+        </div>
+        <div class="small_img" id="small_2">
+          <a href="#"><img src="./images/image-product-2-thumbnail.jpg" alt="small photo shoes" /></a>
+        </div>
+        <div class="small_img" id="small_3">
+          <a href="#"><img src="./images/image-product-3-thumbnail.jpg" alt="small photo shoes" /></a>
+        </div>
+        <div class="small_img" id="small_4">
+          <a href="#"><img src="./images/image-product-4-thumbnail.jpg" alt="small photo shoes" /></a>
+        </div>
+        <!--Modale-->
+        <div class="modal" id="modale">
+          <span class="close" onclick="hideModale()">&times</span>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <div class="modal-content">
+            <img id="currentImg" src="" alt="">
+          </div>
+        </div>
+
+
+        
+      </section>
+    </article>
+    <aside>
+      <h4><b>Sneaker Company</b></h4>
+      <h1>Fall Limited Edition Sneakers</h1>
+      <p>
+        These low-profile sneakers are your perfect casual wear companion.
+        Featuring a durable rubber outer sole, they’ll withstand everything
+        the weather can offer.
+      </p>
+      <p id="price">$125.00 <span id="reduc">50%</span></p>
+      <p id="exPrice">$250.00</p>
+      <div class="nombre_article">
+        <div class="nombre_article">
+          <input onclick="removeQuantity()" class="nbArt" id="nbMoins" type="submit" value="-" />
+          <input class="nbArt" id="nbArt" type="text" value="0" />
+          <input onclick= "addQuantity()" class="nbArt" id="nbPlus" type="submit" value="+" />
+        </div>
+        <div class="addBtn">
+        <button id="subBtn" type="submit" name="submitBtn" onclick= "displayQuantityToCart()">
+          <img src="./images/icon-cart-white.svg" alt="" /> Add to cart
+        </button>
+      </div>
+      </div>
+    </aside>
+  </main>
+
+</body>
+<script src="script.js" async></script>
+
+</html>
+
+<!-- !  -->
+<!-- ?  -->
+<!-- todo  -->
+<!-- * -->
