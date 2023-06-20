@@ -5,12 +5,8 @@ const wideImages = document.querySelectorAll(".wide_img img");
 const modale = document.getElementById("modale");
 const modalContent = document.querySelector(".modal-content");
 const smallImages = document.querySelectorAll(".small_img img");
-
-
-
 const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
-
 let slideIndex = 0;
 
 // Masquer la lightbox au chargement de la page
@@ -30,29 +26,12 @@ function showModale() {
     modale.style.display = "block";
 }
 
-const cart = document.getElementById("acces");
-let divCart = document.createElement("div");
-// fonction pour afficher la cart
-function displayCart() {
-    divCart.innerHTML = `<div class="cart_title"><h5>Cart</h5>
-    <hr></div>
-    <div class="cart_content">
-    <p class= "contentCart">Your cart is empty.</p></div>`;
-    cart.appendChild(divCart);
-    divCart.classList.add("cart");
-}
-
-//fonction pour masquer la cart
-function clearCart() {
-    cart.removeChild(divCart);
-}
-
-// Fonction pour changer de slide
+// Changer de slide
 function plusSlides(n) {
     showSlide(slideIndex += n);
 }
 
-// Fonction pour afficher la slide actuelle
+// Afficher la slide actuelle
 function showSlide(n) {
     slideIndex = n;
     if (slideIndex < 0) {
@@ -63,30 +42,76 @@ function showSlide(n) {
     modalContent.innerHTML = `<img src="${smallImages[slideIndex].src}" alt="">`;
 }
 
-// Ajouter des écouteurs d'événements pour les miniatures
-
-// Ajouter des écouteurs d'événements pour les buttons plus et moins et afficher la quantité d'articles dans le cart
-
-// Ajouter un ecouter d'evenement sur le boutton SubmitBtn et afficher la quantité d'articles dans le cart 
-
-//quantité d'articles dans le cart
+// Afficher le cart
+const cart = document.getElementById("acces");
+let divCart = document.createElement("div");
+divCart.classList.add("cart");
 let qty = 0;
-let nombArt = document.getElementById("nbArt").value;
-let quantity= document.querySelector('.contentCart');// `<p class="contentCart">${nombArt}</p>`
+let nbArt = document.getElementById("nbArt");
 
+function displayCart() {
+    if (qty == 0) {
+        divCart.innerHTML = `<div class="cart_title">
+        <h5>Cart</h5>
+        <hr>
+        </div>
+        <div class="cart_content">
+        <p class= "contentCart">Your cart is empty.</p></div>`;
+        cart.appendChild(divCart);
+    } else {
+        divCart.innerHTML = `<div class="cart_title">
+    <h5>Cart</h5>
+    <hr></div>
+    <div class="cart_content">
+    <p class= "contentCart">Your cart contains ${qty} article(s)</p>
+    </div>`;
+        cart.appendChild(divCart);
+    }
+}
+
+//Masquer le cart
+function undisplayCart() {
+    cart.removeChild(divCart);
+}
+
+//Ajouter au Cart
+function displayQuantityToCart() {
+    if (qty > 0) {
+        divCart.innerHTML = `<div class="cart_title">
+        <h5>Cart</h5>
+        <hr></div>
+        <div class="cart_content">
+        <p class= "contentCart">Your cart contains ${qty} article(s)</p>
+        <div class="cart_btn">
+        <button onclick= "clearCart()" id="cancelBtn" type="button">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="payBtn" type="submit">Proceed with payment</button>
+        </div>
+        </div>`;
+        cart.appendChild(divCart);
+    } else {
+        cart.removeChild(divCart);
+        displayCart();
+    }
+}
+
+//Cancel addToCart
+function clearCart() {
+    qty = 0;
+    nbArt.value = 0;
+    displayCart();
+    undisplayCart();
+}
+
+// Manage quantité d'articles dans le cart
 function addQuantity() {
-    qty= nombArt++;
-    document.getElementById("nbArt").value = nombArt;
-    displayQuantityToCart()
+    qty++;
+    nbArt.value = qty;
 }
 
 function removeQuantity() {
-    qty= nombArt--;
-    document.getElementById("nbArt").value = nombArt;
-    displayQuantityToCart()
+    if (qty > 0) {
+        qty--;
+        nbArt.value = qty;
+    }
 }
-
-function displayQuantityToCart() {
-    quantity.innerHTML = "your cart contains" + nombArt + "articles";
-    
-}
+//todo proceed with payment

@@ -68,7 +68,6 @@ hr{
 }
 
 .cart{
-
   font-family: "Kumbh Sans";
   position: absolute;
   top: 11%;
@@ -254,11 +253,7 @@ h1{
   display: block;
   justify-items: start;
   border-radius: 10px;
-}
-
-#subBtn:hover{
   cursor: pointer;
-  
 }
 
 #subBtn>img{
@@ -267,6 +262,24 @@ h1{
 
 #subBtn:hover>img{
   padding-right: 20px;
+}
+
+#payBtn{
+  background-color: hsla(26, 100%, 70%);
+  color: white;
+  font-size: 20px;
+  padding: 3px;
+  border-radius: 5px;
+  border: solid 1px transparent;
+  cursor: pointer;
+}
+
+#cancelBtn{
+  font-size: 20px;
+  padding: 3px;
+  border-radius: 5px;
+  border: solid 1px transparent;
+  cursor: pointer;
 }
 /* ________Modale_____________ */
 
