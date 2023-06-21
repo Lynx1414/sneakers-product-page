@@ -84,7 +84,9 @@ function displayQuantityToCart() {
         <p class= "contentCart">Your cart contains ${qty} article(s)</p>
         <div class="cart_btn">
         <button onclick= "clearCart()" id="cancelBtn" type="button">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="./payment.html">
         <button id="payBtn" type="submit">Proceed with payment</button>
+        </a>
         </div>
         </div>`;
         cart.appendChild(divCart);
@@ -114,4 +116,4 @@ function removeQuantity() {
         nbArt.value = qty;
     }
 }
-//todo proceed with payment
+//todo proceed with payment + contact form
